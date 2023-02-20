@@ -1,3 +1,3 @@
 # Quiz
 ## Deployment
-https://hshini.github.io/Quiz/
+https://hshini.github.io/Quiz-Game/
