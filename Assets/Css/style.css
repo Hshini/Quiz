@@ -1,7 +1,9 @@
 h1{
     text-align: center;
 }
-
+#seconds{
+    text-align: end;
+}
 p{
     text-align: center;
 }
@@ -10,6 +12,7 @@ p{
    display: flex;
    justify-content: center;
 }
+
 button{
     color:white;
     background-color: purple;
@@ -26,4 +29,41 @@ button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+#question{
+text-align: center;
+}
+#gameover{
+    display: flex;
+    justify-content: center;
+}
+
+#final-score{
+    text-align: center;
+
+}
+
+.initials-form{
+    display: flex;
+    justify-content: center;
+}
+#initials{
+    font-size: 22px;
+    margin-left: 20px;
+}
+#submitBtn{
+    margin-right: 10px;
+    color:white;
+    background-color: purple;
+    border-radius: 5px;
+    border:0px;
+    
+}
+.hiden{
+ display: none;
+ 
+}
+.show{
+    display: inline;
+    
 }
