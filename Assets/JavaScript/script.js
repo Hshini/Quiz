@@ -19,12 +19,16 @@ var score=document.querySelector('#score')
 var questionIndex=0;
 var checkAnswer=true;
 var secondsLeft=50;
+var goBack
 
 //Hide Elements 
-finalScore.classList.add('hiden');
-initials.classList.add('hiden');
-submitBtn.classList.add('hiden')
-textArea.classList.add('hiden')
+function hideEL(){
+    finalScore.classList.add('hiden');
+    initials.classList.add('hiden');
+    submitBtn.classList.add('hiden')
+    textArea.classList.add('hiden')
+}
+hideEL();
 //ARRAY WITH QUESTIONS
 var questionArray=[ {
     question:'Which of the following statements regarding JavaScript is true?',
@@ -40,7 +44,7 @@ var questionArray=[ {
     choice2:'Sun Microsystems',
     choice3:'Netscape',
     choice4:'Bell Labs',
-    checkAnswer:choice3
+    checkAnswer:'choice3'
 
 },
 {
@@ -75,7 +79,7 @@ function game(){
         secondsLeft--
         seconds.textContent=secondsLeft +" "+ "Seconds Left";
         if(secondsLeft===0){
-            message()
+            elements()
             gameover.textContent="Game Over"; 
             clearInterval(interval);
            
@@ -94,7 +98,7 @@ function displayQuestions(){
 function nextQuestion(event){
     var buttontext=event.target.textContent;
     console.log(buttontext)
-    if(buttontext!==questionArray[questionIndex].checkAnswer){
+    if(buttontext !==questionArray[questionIndex].checkAnswer){
         secondsLeft -=10;
 
     }
@@ -103,14 +107,15 @@ function nextQuestion(event){
         displayQuestions()
     }
     else{
-        message();        
+      
+        clearInterval(interval);
         score.textContent= " "+ secondsLeft;
-        clearInterval(interval)
+        elements();        
     }
     
 }
 
-function message(){
+function elements(){
     question.classList.add('hiden');
     choice1.classList.add('hiden');
     choice2.classList.add('hiden');
@@ -118,20 +123,35 @@ function message(){
     choice4.classList.add('hiden');
     finalScore.classList.remove('hiden');
     initials.classList.remove('hiden');
-    submit.classList.remove('hiden');
+    submitBtn.classList.remove('hiden');
     textArea.classList.remove('hiden')
 }
+function message(){
+    var msg=document.createElement('h3');
+    var lastscore=document.createElement('p');
+    msg.textContent="Hight Scores"
+    lastscore.textContent=secondsLeft;
+    document.body.appendChild(msg)
+}
 
+function highScores(event){
+    event.preventDefault();
+    hideEL()
+    seconds.classList.add('hiden');
+    secondsLeft.classList.add('hiden');
+    var highScores=document.createElement('p');
+    highScores.textContent=textArea +'dasdasd,'+ secondsLeft;
+    document.body.appendChild(highScores);
+
+    goBack=document.createElement('button')
+    goBack.textContent='Go Back';
+    document.body.appendChild(goBack)
+    
+}
 button.addEventListener('click',startGame);
 choice1.addEventListener('click',nextQuestion)
 choice2.addEventListener('click',nextQuestion)
 choice3.addEventListener('click',nextQuestion)
 choice4.addEventListener('click',nextQuestion)
-// submitBtn.addEventListener('submit',function(event){
-//     event.preventDefault;
-//     var msg=document.createElement('h3');
-//     var lastscore=document.createElement('p');
-//     msg.textContent="Hight Scores"
-//     lastscore.textContent=secondsLeft;
-//     document.body.appendChild(msg)
-//  })
+submitBtn.addEventListener('click',highScores)
+back.addEventListener('click',startGame)
