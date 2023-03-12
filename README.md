@@ -8,7 +8,7 @@ This test is created to test  basic skills in javascript.
 N/A
 
 ## Usage
-[Click Here](https://hshini.github.io/Quiz-Game/) to start Quiz Game
+[Click Here](https://hshini.github.io/Quiz-Game/) to start Quiz 
 
 ![Quiz Game Photo](./Assets/Images/img-1.png) ![Quiz Game Photo](./Assets/Images/img-2.png)
 ## License
