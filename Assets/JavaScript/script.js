@@ -106,7 +106,7 @@ function nextQuestion(event){
     if(buttontext !==questionArray[questionIndex].checkAnswer){
         secondsLeft -=10;
     }
-    
+    questionIndex++; 
    if(questionIndex<=questionArray.length){
         displayQuestions()
     }
@@ -117,7 +117,7 @@ function nextQuestion(event){
        
         elements();        
     }
-    questionIndex++; 
+  
        
 
 
