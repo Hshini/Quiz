@@ -1,24 +1,28 @@
-body{
-background-color: rgb(82, 82, 153);
-color:white;
-}
-h1{
-    text-align: center;
-}
-#seconds{
-    text-align: end;
-}
-p{
-    text-align: center;
-}
-/* button  */
-.start-button{
-   display: flex;
-   justify-content: center;
+body {
+    background-color: rgb(82, 82, 153);
+    color: white;
 }
 
-button{
-    color:white;
+h1 {
+    text-align: center;
+}
+
+#seconds {
+    text-align: end;
+}
+
+p {
+    text-align: center;
+}
+
+/* button  */
+.start-button {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    color: white;
     background-color: purple;
     font-size: 30px;
     border-radius: 5px;
@@ -27,54 +31,64 @@ button{
     flex-direction: row;
     margin-bottom: 10px;
 }
-button:hover {background-color: #3e8e41}
+
+button:hover {
+    background-color: #3e8e41
+}
 
 button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
-#question{
-text-align: center;
+#question {
+    text-align: center;
 }
-#gameover{
+
+#gameover {
     display: flex;
     justify-content: center;
 }
 
-#final-score{
+#final-score {
     text-align: center;
 
 }
 
-.initials-form{
+.initials-form {
     display: flex;
     justify-content: center;
 
 }
-#initials{
+
+#initials {
     font-size: 22px;
 }
-#text-area{
+
+#text-area {
     margin-left: 15px;
     margin-right: 15px;
 }
-#submitBtn{
-    color:white;
+
+#submitBtn {
+    color: white;
     background-color: purple;
     border-radius: 5px;
-    border:0px;
-    
+    border: 0px;
+
 }
-#high-scores{
+
+#high-scores {
     text-align: center;
 }
-#backBtn{
+
+#backBtn {
     display: flex;
     justify-content: center;
 }
-.hiden{
- display: none;
- 
+
+.hiden {
+    display: none;
+
 }
