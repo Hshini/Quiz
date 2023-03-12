@@ -15,11 +15,13 @@ var initials=document.getElementById('initials')
 var submitBtn=document.querySelector('#submitBtn')
 var textArea=document.querySelector('#text-area')
 var score=document.querySelector('#score')
+var highScores=document.querySelector('#high-scores')
+var goBack=document.querySelector('#goBack')
 
 var questionIndex=0;
 var checkAnswer=true;
 var secondsLeft=50;
-var goBack
+
 
 //Hide Elements 
 function hideEL(){
@@ -27,6 +29,8 @@ function hideEL(){
     initials.classList.add('hiden');
     submitBtn.classList.add('hiden')
     textArea.classList.add('hiden')
+    highScores.classList.add('hiden')
+    goBack.classList.add('hiden')
 }
 hideEL();
 //ARRAY WITH QUESTIONS
@@ -36,7 +40,7 @@ var questionArray=[ {
     choice2:'JavaScript is an Object-Based language',
     choice3:'JavaScript is a High-level language',
     choice4:'JavaScript is an Object-Oriented language',
-    checkAnswer:choice2
+    checkAnswer:"JavaScript is an Object-Based language"
 },
 {
     question:'JavaScript was created by which company?',
@@ -44,7 +48,7 @@ var questionArray=[ {
     choice2:'Sun Microsystems',
     choice3:'Netscape',
     choice4:'Bell Labs',
-    checkAnswer:'choice3'
+    checkAnswer:"Netscape"
 
 },
 {
@@ -53,7 +57,7 @@ var questionArray=[ {
     choice2:'Undefined',
     choice3:'Float',
     choice4:'Boolean',
-    checkAnswer: 'choice4 '
+    checkAnswer: ' Boolean'
 },
 {
     question:'Which of these String object functions gives the calling data type transformed to upper case?',
@@ -86,7 +90,7 @@ function game(){
         }
        },1000)
 }
-
+//Display Questions
 function displayQuestions(){
     question.textContent=questionArray[questionIndex].question
     choice1.textContent=questionArray[questionIndex].choice1
@@ -98,23 +102,26 @@ function displayQuestions(){
 function nextQuestion(event){
     var buttontext=event.target.textContent;
     console.log(buttontext)
+    
     if(buttontext !==questionArray[questionIndex].checkAnswer){
         secondsLeft -=10;
-
-    }
-    questionIndex++
-   if(questionIndex<questionArray.length){
-        displayQuestions()
-    }
-    else{
-      
-        clearInterval(interval);
-        score.textContent= " "+ secondsLeft;
-        elements();        
     }
     
-}
+   if(questionIndex<=questionArray.length){
+        displayQuestions()
+    }
+    
+    else{
+        clearInterval(interval);
+        score.textContent= " "+ secondsLeft;
+       
+        elements();        
+    }
+    questionIndex++; 
+       
 
+
+}
 function elements(){
     question.classList.add('hiden');
     choice1.classList.add('hiden');
@@ -134,24 +141,19 @@ function message(){
     document.body.appendChild(msg)
 }
 
-function highScores(event){
-    event.preventDefault();
-    hideEL()
-    seconds.classList.add('hiden');
-    secondsLeft.classList.add('hiden');
-    var highScores=document.createElement('p');
-    highScores.textContent=textArea +'dasdasd,'+ secondsLeft;
-    document.body.appendChild(highScores);
-
-    goBack=document.createElement('button')
-    goBack.textContent='Go Back';
-    document.body.appendChild(goBack)
-    
-}
 button.addEventListener('click',startGame);
 choice1.addEventListener('click',nextQuestion)
 choice2.addEventListener('click',nextQuestion)
 choice3.addEventListener('click',nextQuestion)
 choice4.addEventListener('click',nextQuestion)
-submitBtn.addEventListener('click',highScores)
-back.addEventListener('click',startGame)
+submitBtn.addEventListener('click',function(event){
+    event.preventDefault();
+    hideEL()
+    highScores.classList.remove('hiden')
+    goBack.classList.remove('hiden')
+    highScores.textContent='High Scores =' + secondsLeft;
+})
+ goBack.addEventListener('click',function(){
+    
+    location.reload()
+ })

@@ -67,11 +67,14 @@ text-align: center;
     border:0px;
     
 }
+#high-scores{
+    text-align: center;
+}
+#backBtn{
+    display: flex;
+    justify-content: center;
+}
 .hiden{
  display: none;
  
-}
-.show{
-    display: inline;
-    
 }
