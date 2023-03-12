@@ -57,7 +57,7 @@ var questionArray=[ {
     choice2:'Undefined',
     choice3:'Float',
     choice4:'Boolean',
-    checkAnswer: ' Boolean'
+    checkAnswer:'Float'
 },
 {
     question:'Which of these String object functions gives the calling data type transformed to upper case?',
@@ -65,7 +65,7 @@ var questionArray=[ {
     choice2:'substring()',
     choice3:'toUpperCase()',
     choice4:'toLocaleUpperCase()',
-    checkAnswer: 'choice3'
+    checkAnswer: 'toUpperCase()'
 }
 ]
 //Start Game Function
